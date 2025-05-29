@@ -8,22 +8,25 @@ set background=dark
 let g:colors_name = "gothic-cyberpunk"
 
 " ___ Define color variables ___
-let s:magenta_bright = "#FF0055"
-let s:teal_bright = "#00FFC8"
+" Black and Gray Tones
+let s:jet_black = "#000000"
+let s:deep_charcoal = "#060606"
+let s:dark_slate = "#0F0F0F"
+let s:stormy_gray = "#151515"
+let s:shadow_gray = "#202020"
+let s:medium_steel = "#545454"
+let s:muted_silver = "#8F8F8F"
+let s:light_mist = "#C4C4C4"
 
-" Blacks and Grays
-let s:pure_black = "#000000"
-let s:almost_black = "#060606"
-let s:light_gray = "#C4C4C4"
-let s:med_gray = "#8F8F8F"
-let s:med_gray2 = "#545454"
-let s:semidark_gray = "#202020"
-let s:dark_gray = "#151515"
-let s:darker_gray = "#0F0F0F"
-let s:almost_white = "#d9d9d9"
-let s:pure_white = "#FFFFFF"
+" White Tones
+let s:crisp_white = "#FFFFFF"
+let s:soft_ivory = "#d9d9d9"
 
+" Teal Tones
+let s:vibrant_teal = "#00FFC8"
 
+" Magenta Tones
+let s:neon_magenta = "#FF0055"
 
 function! HighlightFor(group, fg, bg, style)
   execute "hi ".a:group
@@ -33,96 +36,91 @@ function! HighlightFor(group, fg, bg, style)
 endfunction
 
 " Diff
-call HighlightFor("DiffAdd",    s:pure_black,           s:teal_bright,   "NONE")
-call HighlightFor("DiffDelete", s:pure_black,           s:magenta_bright,     "NONE")
-call HighlightFor("DiffText",   s:pure_white,           s:dark_gray,   "NONE")
-call HighlightFor("DiffChange", s:pure_black,           s:pure_white,         "NONE")
+call HighlightFor("DiffAdd",    s:jet_black,           s:vibrant_teal,   "NONE")
+call HighlightFor("DiffDelete", s:jet_black,           s:neon_magenta,   "NONE")
+call HighlightFor("DiffText",   s:crisp_white,         s:stormy_gray,    "NONE")
+call HighlightFor("DiffChange", s:jet_black,           s:crisp_white,    "NONE")
 
 " Cursor
-call HighlightFor("Cursor",       s:teal_bright,    "NONE",           "NONE")
-call HighlightFor("CursorLineNr", s:pure_black, s:teal_bright, "NONE")
-call HighlightFor("CursorLine", s:pure_black, s:magenta_bright, "NONE")
-call HighlightFor("CursorColumn", "NONE", "NONE", "NONE")
+call HighlightFor("Cursor",       s:vibrant_teal,    "NONE",           "NONE")
+call HighlightFor("CursorLineNr", s:jet_black,       s:vibrant_teal,   "NONE")
+call HighlightFor("CursorLine",   s:jet_black,       s:neon_magenta,   "NONE")
+call HighlightFor("CursorColumn", "NONE",            "NONE",           "NONE")
 
 " Folds
-call HighlightFor("Folded",      s:teal_bright,     s:almost_black, "italic")
-call HighlightFor("FoldColumn",  s:pure_black,     s:pure_white, "NONE")
+call HighlightFor("Folded",      s:vibrant_teal,     s:deep_charcoal, "italic")
+call HighlightFor("FoldColumn",  s:jet_black,        s:crisp_white,   "NONE")
 
 " Pmenu
-call HighlightFor("Pmenu",    s:pure_white,     s:dark_gray, "NONE")
-call HighlightFor("PmenuSel",       s:pure_white,     s:magenta_bright, "NONE")
-call HighlightFor("PmenuSbar",   s:magenta_bright,     s:pure_white, "NONE")
-call HighlightFor("PmenuThumb",  s:magenta_bright,     s:pure_black, "NONE")
+call HighlightFor("Pmenu",       s:crisp_white,      s:stormy_gray,   "NONE")
+call HighlightFor("PmenuSel",    s:crisp_white,      s:neon_magenta,  "NONE")
+call HighlightFor("PmenuSbar",   s:neon_magenta,     s:crisp_white,   "NONE")
+call HighlightFor("PmenuThumb",  s:neon_magenta,     s:jet_black,     "NONE")
 
 " General
-call HighlightFor("Normal",      s:pure_white, s:darker_gray, "NONE")
-call HighlightFor("Visual",      "NONE",           s:med_gray, "NONE")
-call HighlightFor("LineNr",      s:teal_bright, s:pure_black,          "NONE")
-call HighlightFor("SignColumn",  s:teal_bright,    "NONE",          "NONE")
-call HighlightFor("VertSplit",  s:pure_black, s:pure_white, "NONE")
-call HighlightFor("IncSearch",  s:pure_black,           s:teal_bright,      "NONE")
-call HighlightFor("Search",     s:pure_black,           s:teal_bright,      "NONE")
-call HighlightFor("Substitute", s:pure_black,           s:teal_bright,      "NONE")
-call HighlightFor("MatchParen", s:pure_black, s:teal_bright,    "NONE")
-call HighlightFor("NonText",    s:light_gray, "NONE",           "NONE")
-call HighlightFor("Whitespace", s:light_gray, "NONE",           "NONE")
-call HighlightFor("Directory",  s:teal_bright,    s:almost_black,           "NONE")
+call HighlightFor("Normal",      s:crisp_white,      s:dark_slate,    "NONE")
+call HighlightFor("Visual",      "NONE",             s:muted_silver,  "NONE")
+call HighlightFor("LineNr",      s:vibrant_teal,     s:jet_black,     "NONE")
+call HighlightFor("SignColumn",  s:vibrant_teal,     "NONE",          "NONE")
+call HighlightFor("VertSplit",   s:jet_black,        s:crisp_white,   "NONE")
+call HighlightFor("IncSearch",   s:jet_black,        s:vibrant_teal,  "NONE")
+call HighlightFor("Search",      s:jet_black,        s:vibrant_teal,  "NONE")
+call HighlightFor("Substitute",  s:jet_black,        s:vibrant_teal,  "NONE")
+call HighlightFor("MatchParen",  s:jet_black,        s:vibrant_teal,  "NONE")
+call HighlightFor("NonText",     s:light_mist,       "NONE",          "NONE")
+call HighlightFor("Whitespace",  s:light_mist,       "NONE",          "NONE")
+call HighlightFor("Directory",   s:vibrant_teal,     s:deep_charcoal, "NONE")
 
 " Code - data types
-call HighlightFor("Comment",     s:med_gray,   "NONE", "NONE")
-call HighlightFor("String",      s:pure_white,   s:pure_black, "NONE")
-call HighlightFor("Number",      s:teal_bright,   s:pure_black, "NONE")
-call HighlightFor("Float",       s:pure_white,   s:pure_black, "NONE")
-call HighlightFor("Boolean",     s:pure_white,   s:pure_black, "NONE")
-call HighlightFor("Character",   s:pure_white,   s:pure_black, "NONE")
+call HighlightFor("Comment",     s:muted_silver,     "NONE",          "NONE")
+call HighlightFor("String",      s:crisp_white,      s:jet_black,     "NONE")
+call HighlightFor("Number",      s:vibrant_teal,     s:jet_black,     "NONE")
+call HighlightFor("Float",       s:crisp_white,      s:jet_black,     "NONE")
+call HighlightFor("Boolean",     s:crisp_white,      s:jet_black,     "NONE")
+call HighlightFor("Character",   s:crisp_white,      s:jet_black,     "NONE")
 
-" Code - general"
-call HighlightFor("Statement",   s:pure_white,     s:almost_black, "NONE")
-call HighlightFor("StorageClass",s:almost_white,"NONE", "italic")
-call HighlightFor("Structure",   s:almost_white,"NONE", "italic")
-call HighlightFor("Repeat",      s:almost_white, s:dark_gray, "NONE")
-call HighlightFor("Conditional", s:almost_white, s:dark_gray, "NONE")
-call HighlightFor("Keyword",    s:pure_black,     s:light_gray, "italic")
-call HighlightFor("Function",     s:pure_black,     s:pure_white, "italic")
-call HighlightFor("Operator",    s:pure_white,    s:pure_black, "NONE")
-call HighlightFor("Identifier",  s:pure_white, s:med_gray2, "NONE")
-call HighlightFor("Type",  s:pure_white, s:semidark_gray, "NONE")
-call HighlightFor("Typedef",  s:pure_white, s:semidark_gray, "NONE")
-call HighlightFor("PreProc",     s:pure_white,     s:med_gray, "NONE")
-call HighlightFor("Underlined",     s:pure_white,     s:med_gray, "NONE")
-call HighlightFor("Special",      s:teal_bright,   s:pure_black, "NONE")
+" Code - general
+call HighlightFor("Keyword",     s:crisp_white,      s:medium_steel,  "italic")
+call HighlightFor("Function",    s:jet_black,        s:crisp_white,   "italic")
+call HighlightFor("Identifier",  s:jet_black,        s:medium_steel,  "NONE")
+call HighlightFor("Statement",   s:crisp_white,      s:deep_charcoal, "NONE")
+call HighlightFor("StorageClass",s:soft_ivory,       "NONE",          "italic")
+call HighlightFor("Structure",   s:soft_ivory,       "NONE",          "italic")
+call HighlightFor("Repeat",      s:soft_ivory,       s:stormy_gray,   "NONE")
+call HighlightFor("Conditional", s:soft_ivory,       s:stormy_gray,   "NONE")
+call HighlightFor("Operator",    s:crisp_white,      s:jet_black,     "NONE")
+call HighlightFor("Type",        s:crisp_white,      s:shadow_gray,   "NONE")
+call HighlightFor("Typedef",     s:crisp_white,      s:shadow_gray,   "NONE")
+call HighlightFor("PreProc",     s:crisp_white,      s:muted_silver,  "NONE")
+call HighlightFor("Underlined",  s:crisp_white,      s:muted_silver,  "NONE")
+call HighlightFor("Special",     s:vibrant_teal,     s:jet_black,     "NONE")
 
-call HighlightFor("Label",       s:pure_white,     s:magenta_bright, "NONE")
-call HighlightFor("Exception",   s:pure_black,     s:magenta_bright, "NONE")
-call HighlightFor("Todo",        s:pure_black,     s:teal_bright, "italic")
-call HighlightFor("Error",       s:pure_black,     s:magenta_bright, "undercurl")
-call HighlightFor("WarningMsg",  s:pure_black,     s:teal_bright, "NONE")
-call HighlightFor("Tag",         s:pure_black,     s:teal_bright, "undercurl")
+call HighlightFor("Label",       s:crisp_white,      s:neon_magenta,  "NONE")
+call HighlightFor("Exception",   s:jet_black,        s:neon_magenta,  "NONE")
+call HighlightFor("Todo",        s:jet_black,        s:vibrant_teal,  "italic")
+call HighlightFor("Error",       s:jet_black,        s:neon_magenta,  "undercurl")
+call HighlightFor("WarningMsg",  s:jet_black,        s:vibrant_teal,  "NONE")
+call HighlightFor("Tag",         s:jet_black,        s:vibrant_teal,  "undercurl")
 
 " Status line
-call HighlightFor("StatusLine",  s:dark_gray, s:pure_white, "bold")
-call HighlightFor("StatusLineNC", s:teal_bright,    s:pure_black, "NONE")
+call HighlightFor("StatusLine",  s:stormy_gray,      s:crisp_white,   "bold")
+call HighlightFor("StatusLineNC",s:vibrant_teal,     s:jet_black,     "NONE")
 
 " Tab pages
-call HighlightFor("TabLine",     s:pure_white,     s:pure_black, "NONE")
-call HighlightFor("TabLineSel",  s:pure_black,     s:teal_bright, "bold")
-call HighlightFor("TabLineFill", s:pure_white,     s:darker_gray, "NONE")
+call HighlightFor("TabLine",     s:crisp_white,      s:jet_black,     "NONE")
+call HighlightFor("TabLineSel",  s:jet_black,        s:vibrant_teal,  "bold")
+call HighlightFor("TabLineFill", s:crisp_white,      s:dark_slate,    "NONE")
 
 " Placeholder
-call HighlightFor("Title",      s:pure_white,   s:dark_gray,           "NONE")
-call HighlightFor("WildMenu",   s:pure_white,    s:med_gray,           "NONE")
-
-" call HighlightFor("String",      s:med_gray, s:dark_gray, "NONE") DARK
-" call HighlightFor("Function",    s:teal_bright,     "#36004a", "NONE")
-
+call HighlightFor("Title",       s:crisp_white,      s:stormy_gray,   "NONE")
+call HighlightFor("WildMenu",    s:crisp_white,      s:muted_silver,  "NONE")
 
 " Custom fugitive blame colors
-call HighlightFor("fugitiveHash", s:pure_black, s:teal_bright, "NONE")
-call HighlightFor("fugitiveAuthor", s:pure_black, s:magenta_bright, "NONE")
-call HighlightFor("fugitiveTime", s:pure_black, s:light_gray, "NONE")
-call HighlightFor("fugitiveSummary", s:pure_black, s:almost_white, "NONE")
-call HighlightFor("fugitiveBoundary", s:pure_black, s:magenta_bright, "NONE")
-call HighlightFor("fugitiveUntracked", s:pure_black, s:med_gray, "NONE")
-call HighlightFor("fugitiveUnstaged", s:pure_black, s:med_gray2, "NONE")
-call HighlightFor("fugitiveStaged", s:pure_black, s:teal_bright, "NONE")
-
+call HighlightFor("fugitiveHash",     s:jet_black,   s:vibrant_teal,  "NONE")
+call HighlightFor("fugitiveAuthor",   s:jet_black,   s:neon_magenta,  "NONE")
+call HighlightFor("fugitiveTime",     s:jet_black,   s:light_mist,    "NONE")
+call HighlightFor("fugitiveSummary",  s:jet_black,   s:soft_ivory,    "NONE")
+call HighlightFor("fugitiveBoundary", s:jet_black,   s:neon_magenta,  "NONE")
+call HighlightFor("fugitiveUntracked",s:jet_black,   s:muted_silver,  "NONE")
+call HighlightFor("fugitiveUnstaged", s:jet_black,   s:medium_steel,  "NONE")
+call HighlightFor("fugitiveStaged",   s:jet_black,   s:vibrant_teal,  "NONE")
