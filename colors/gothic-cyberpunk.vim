@@ -23,12 +23,21 @@ let s:whitest = "#FFFFFF"
 let s:vibrant_teal = "#00FFC8"
 let s:neon_magenta = "#FF0055"
 
+" For terminal support
+let s:cterm_vibrant_teal = "51"  " Approx teal in 256-color
+let s:cterm_neon_magenta = "201" " Approx magenta in 256-color
+
 function! HighlightFor(group, fg, bg, style)
   execute "hi ".a:group
         \ ." guifg=".a:fg
         \ ." guibg=".a:bg
         \ ." gui=".a:style
+        \ ." ctermfg=".s:cterm_vibrant_teal
+        \ ." ctermbg=".s:cterm_neon_magenta
+        \ ." cterm=".a:style
 endfunction
+
+
 
 " Diff
 call HighlightFor("DiffAdd",    s:blackest,           s:vibrant_teal,   "NONE")
@@ -75,30 +84,31 @@ call HighlightFor("Boolean",     s:whitest,      s:blackest,     "NONE")
 call HighlightFor("Character",   s:whitest,      s:blackest,     "NONE")
 
 " Code - general
-call HighlightFor("Keyword",  s:whiter,        s:light_gray,  "NONE")
 call HighlightFor("Identifier",     s:whitest,      s:lighter_gray,  "italic")
-call HighlightFor("Function",    s:blackest,        s:whitest,   "italic")
+call HighlightFor("Function",    s:blackest,        s:whiter,   "italic")
 call HighlightFor("Statement",   s:whitest,      s:blacker, "NONE")
 call HighlightFor("StorageClass",s:whiter,       "NONE",          "italic")
 call HighlightFor("Structure",   s:whiter,       "NONE",          "italic")
 call HighlightFor("Repeat",      s:whiter,       s:dark_gray,   "NONE")
-call HighlightFor("Conditional", s:whiter,       s:dark_gray,   "NONE")
+call HighlightFor("Conditional", s:blackest, s:vibrant_teal,   "NONE")
+call HighlightFor("perlConditional", s:blackest, s:vibrant_teal,   "NONE")
 call HighlightFor("Operator",    s:whitest,      s:blackest,     "NONE")
 call HighlightFor("Type",        s:whitest,      s:light_gray,   "NONE")
 call HighlightFor("Typedef",     s:whitest,      s:light_gray,   "NONE")
 call HighlightFor("PreProc",     s:whitest,      s:lightest_gray,  "NONE")
 call HighlightFor("Underlined",  s:whitest,      s:lightest_gray,  "NONE")
 call HighlightFor("Special",     s:vibrant_teal,     s:blackest,     "NONE")
+call HighlightFor("Keyword",  s:vibrant_teal,        s:blackest,  "NONE")
 
-call HighlightFor("Label",       s:whitest,      s:neon_magenta,  "NONE")
-call HighlightFor("Exception",   s:blackest,        s:neon_magenta,  "NONE")
+call HighlightFor("Label",       s:blacker,      s:neon_magenta,  "NONE")
+call HighlightFor("Exception",       s:blacker,      s:neon_magenta,  "NONE")
 call HighlightFor("Todo",        s:blackest,        s:vibrant_teal,  "italic")
 call HighlightFor("Error",       s:blackest,        s:neon_magenta,  "undercurl")
 call HighlightFor("WarningMsg",  s:blackest,        s:vibrant_teal,  "NONE")
 call HighlightFor("Tag",         s:blackest,        s:vibrant_teal,  "undercurl")
 
 " Status line
-call HighlightFor("StatusLine",  s:dark_gray,      s:whitest,   "bold")
+call HighlightFor("StatusLine",  s:vibrant_teal,      s:blackest,   "bold")
 call HighlightFor("StatusLineNC",s:vibrant_teal,     s:blackest,     "NONE")
 
 " Tab pages
