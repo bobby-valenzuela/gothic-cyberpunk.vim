@@ -70,5 +70,6 @@ let g:airline_right_alt_sep=''
 ```
 
 ## Screenshots
-![cyberpunk](./screenshots/gothic-cyberpunk.png)
+![cyberpunk](./screenshots/gothic-cyberpunk.png)  
+![cyberpunk2](./screenshots/gothic-cyberpunk2.png)
 ---
